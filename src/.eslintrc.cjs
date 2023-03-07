@@ -3,17 +3,20 @@ module.exports = {
     'es6': true,
     'browser': true
   },
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  extends: ['eslint:recommended',
+    'plugin:@typescript-eslint/recommended'],
   parser: '@typescript-eslint/parser',
-  "ecmaVersion": 2018,
-  "sourceType": "module",
-  "ecmaFeatures": {
-    "impliedStrict": true,
-    "jsx": true,
+  sourceType: "module",
+  parserOptions: {
+    ecmaVersion: 6,
   },
   plugins: ['@typescript-eslint'],
   root: true,
   rules: {
+    "indent": [
+      "error",
+      4
+    ],
     'no-console': 'warn',
     'no-alert': 'error',
     camelcase: 'warn',
