@@ -27,7 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postinstall": "husky install"
+    "lint:fix": "eslint src/*.js --fix",
+    "lint": "eslint src/*.js"
   },
   "eslintConfig": {
     "extends": [
@@ -35,11 +36,17 @@
       "react-app/jest"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.ts": [
+    "*.(tsx|js)": [
+      "npm run lint:fix",
       "npm run lint",
-      "npm run format",
-      "git add ."
+      "prettier --write",
+      "git add"
     ]
   },
   "browserslist": {

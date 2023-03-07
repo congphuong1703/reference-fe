@@ -1,6 +1,16 @@
 module.exports = {
+  env: {
+    'es6': true,
+    'browser': true
+  },
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   parser: '@typescript-eslint/parser',
+  "ecmaVersion": 2018,
+  "sourceType": "module",
+  "ecmaFeatures": {
+    "impliedStrict": true,
+    "jsx": true,
+  },
   plugins: ['@typescript-eslint'],
   root: true,
   rules: {
