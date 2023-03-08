@@ -37,6 +37,7 @@ module.exports = {
     eqeqeq: 'warn',
     'no-empty': 'warn',
     'no-else-return': 'error',
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    'no-unused-vars': "error",
   },
 };
