@@ -38,6 +38,6 @@ module.exports = {
     'no-empty': 'warn',
     'no-else-return': 'error',
     "react/jsx-filename-extension": "off",
-    'no-unused-vars': "error",
+    'no-unused-vars': ["error", { "vars": "local" }],
   },
 };
