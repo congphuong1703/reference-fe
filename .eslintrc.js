@@ -4,23 +4,23 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
-    project: ["tsconfig.json"],
+    project: ["./tsconfig.json"],
     ecmaFeatures: {
       jsx: true, // Allows for the parsing of JSX
       tsx: true,
     },
   },
-  plugins: ['@typescript-eslint'],
+  plugins: [
+    '@typescript-eslint',
+    "prettier",
+  ],
   extends: [
     'airbnb-typescript',
     'prettier',
+    "plugin:import/recommended",
     'plugin:prettier/recommended', // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
   ],
   rules: {
-    "indent": [
-      "error",
-      2
-    ],
     'no-console': 'warn',
     'no-alert': 'error',
     camelcase: 'warn',
@@ -36,6 +36,7 @@ module.exports = {
     'default-case': 'warn',
     eqeqeq: 'warn',
     'no-empty': 'warn',
-    'no-else-return': 'error'
+    'no-else-return': 'error',
+    "react/jsx-filename-extension": "off"
   },
 };
