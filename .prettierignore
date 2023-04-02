@@ -1,5 +1,6 @@
 # Ignore files for Prettier when linting
 src/assets/
+src/serviceWorker.ts
 
 *.svg
 *.json
@@ -21,3 +22,4 @@ README.md
 .watchmanconfig
 .idea
 .DS_Store
+

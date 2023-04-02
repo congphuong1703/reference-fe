@@ -36,6 +36,7 @@ module.exports = {
     'default-case': 'warn',
     eqeqeq: 'warn',
     'no-empty': 'warn',
+    semi: "off",
     'no-else-return': 'error',
     "react/jsx-filename-extension": "off",
     'no-unused-vars': ["error", { "vars": "local" }],
