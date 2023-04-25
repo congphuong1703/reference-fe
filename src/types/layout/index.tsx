@@ -1,18 +1,23 @@
+import React from "react";
+
 export type SideBarProps = {
-  nav: NavProps[]
+	nav: NavProps[]
 }
 
 export type NavProps = {
-  tag: string
-  name: string
-  to: string
-  icon: JSX.Element
-}
+	tag: string;
+	name: string;
+	to: string;
+	icon?: React.ReactNode;
+	children?: NavProps[];
+};
 
 export type RouteProps = {
-  path: string
-  exact: boolean
-  name: string
-  permission: string[]
-  component: any
+	path: string
+	exact: boolean
+	uncheckPermission?: boolean
+	accessKey: string
+	pKey: string
+	name: string
+	component: React.ReactNode
 }

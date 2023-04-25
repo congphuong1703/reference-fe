@@ -1,62 +1,93 @@
-import { SideBarProps } from '../../types/layout'
+import { NavProps, SideBarProps } from '../../types/layout'
 import React, { useEffect, useState } from 'react'
-import { Layout, Menu } from 'antd'
+import { Layout, Menu, MenuProps, Tooltip } from 'antd'
 import { Link, useLocation } from 'react-router-dom'
-import { notification } from './Notification'
+import { useTranslation } from "react-i18next";
+import getItem from "../menu/MenuItem";
 
 const { Sider } = Layout
+type MenuItem = Required<MenuProps>['items'][number];
+
 const TheSidebar = (props: SideBarProps) => {
-  const [collapse, setCollapse] = useState(false)
+	const { nav } = props;
+	const [collapse, setCollapse] = useState(false);
 
-  const [selectedKey, setSelectedKey] = useState('0')
-  const onCollapse = () => {
-    setCollapse(!collapse)
-  }
-  const location = useLocation()
-  const locationPath = '/'.concat(location.pathname.split('/')[1])
-  const MenuItem = () => {
-    const navigation = props.nav
-    const navbar = navigation.map((nav) => (
-      // role !== "admin" && (nav.name === "users" || nav.name === "Employee") ? "" :
-      <Menu.Item key={nav.tag} icon={nav.icon} style={{ marginTop: '0px' }}>
-        <Link to={nav.to}>{nav.name}</Link>
-      </Menu.Item>
-    ))
+	const [selectedKey, setSelectedKey] = useState('0');
+	const { t } = useTranslation();
 
-    useEffect(() => {
-      try {
-        let key = navigation.find((_item) =>
-          _item.to.startsWith(locationPath)
-        )?.tag
-        setSelectedKey(key ? key : '0')
-      } catch (e) {
-        notification()
-      }
-    }, [location])
+	const location = useLocation();
 
-    return (
-      <Menu
-        theme="dark"
-        mode="inline"
-        defaultSelectedKeys={['0']}
-        selectedKeys={[selectedKey]}
-      >
-        {navbar}
-      </Menu>
-    )
-  }
-  return (
-    <Sider
-      width={200}
-      className="site-layout-background"
-      collapsible
-      collapsed={collapse}
-      onCollapse={() => onCollapse()}
-    >
-      <div className="logo" />
-      <MenuItem />
-    </Sider>
-  )
+	const MenuItem = () => {
+		// eslint-disable-next-line react/prop-types
+		const items: MenuItem[] = nav?.map((ele: NavProps) =>
+			ele.children
+				? getItem(
+					<Tooltip title={t(ele.name)}>{t(ele.name)}</Tooltip>,
+					ele.tag,
+					ele.icon,
+					ele.children?.map((navChild) =>
+						getItem(
+							<Tooltip title={t(ele.name)}>
+								<Link to={navChild.to}>{t(navChild.name)}</Link>
+							</Tooltip>,
+							navChild.tag,
+							navChild.icon,
+						),
+					),
+				)
+				: getItem(
+					<Tooltip title={t(ele.name)}>
+						<Link to={ele.to}>{t(ele.name)}</Link>
+					</Tooltip>,
+					ele.tag,
+					ele.icon,
+				),
+		);
+		useEffect(() => {
+			try {
+				// eslint-disable-next-line react/prop-types
+				let key = nav?.find((_item) => _item.to === location.pathname)?.tag;
+				if (key === undefined) {
+					/* eslint-disable no-plusplus */
+					// eslint-disable-next-line react/prop-types
+					for (let i = 0; i < nav?.length; i++) {
+						const children = nav[i]?.children;
+						if (children) {
+							key = children.find((ele) => ele.to === location.pathname)?.tag;
+							if (key !== undefined) {
+								break;
+							}
+						}
+					}
+				}
+				setSelectedKey(key || '0');
+			} catch (e) {
+
+			}
+		}, [location]);
+
+		return (
+			<Menu
+				theme="dark"
+				mode="inline"
+				defaultSelectedKeys={['0']}
+				selectedKeys={[selectedKey]}
+				items={items}
+			/>
+		)
+	}
+	return (
+		<Sider
+			width={200}
+			className="site-layout-background"
+			collapsible
+			collapsed={collapse}
+			onCollapse={() => setCollapse(!collapse)}
+		>
+			<div className="logo" />
+			<MenuItem />
+		</Sider>
+	)
 }
 
 export default TheSidebar

@@ -1,10 +1,24 @@
+import { ApiShowResType } from "../request";
+
 export type UserStateType = {
   user: UserType | undefined
   languageType: LanguageType
   isLoggedIn: boolean;
   userToken?: OauthTokenType;
+  apiError?: string;
 
 }
+
+export type SignInParamsType = {
+  phoneNumber: string;
+  password: string;
+};
+export type SignInResponseType = ApiShowResType<SignInSuccessType>;
+
+export type SignInSuccessType = {
+  user: UserType;
+  token: OauthTokenType;
+};
 
 export interface UserType {
   id: number;
@@ -35,5 +49,10 @@ export interface OauthTokenType {
   expiresIn: number;
   refreshToken: string;
   createdAt: number;
+}
+
+export interface SignInPayloadType {
+  user: UserType;
+  token: OauthTokenType;
 }
 

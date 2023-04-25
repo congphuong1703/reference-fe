@@ -1,7 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { LanguageType, OauthTokenType, UserStateType } from '../../types/user'
+import {
+  LanguageType,
+  OauthTokenType,
+  SignInParamsType,
+  SignInPayloadType,
+  UserStateType
+} from '../../types/user'
 import { signIn } from '../actions/user'
 import { useSelector } from 'react-redux'
+import { RootState, useAppDispatch } from '../index'
 
 const initialState: UserStateType = {
   user: undefined,
@@ -10,7 +17,7 @@ const initialState: UserStateType = {
   languageType: LanguageType.VN
 }
 
-export const userSlice = createSlice({
+const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
@@ -28,6 +35,9 @@ export const userSlice = createSlice({
         state.isLoggedIn = true
       }
     )
+    builder.addCase(signIn.rejected, (state, action: PayloadAction<any>) => {
+      state.apiError = action.payload
+    })
   }
 })
 export const useUserState = () => {
@@ -35,6 +45,10 @@ export const useUserState = () => {
     (state: RootState) => state.user
   ) as UserStateType
   const dispatch = useAppDispatch()
+  const userActions = {
+    signIn: (params: SignInParamsType) => dispatch(signIn(params))
+  }
 
   return [userState, userActions] as any
 }
+export default userSlice;

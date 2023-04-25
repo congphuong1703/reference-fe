@@ -1,6 +1,8 @@
+import { combineReducers } from "redux";
+import userSlice from "./user";
+import commonSlice from "./common";
 
-import {combineReducers} from "redux";
-import { userSlice } from "./user";
 export default combineReducers({
-	user: userSlice.reducer
+	user: userSlice.reducer,
+	common: commonSlice.reducer
 });

@@ -1,23 +1,17 @@
 import React from 'react'
 import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import TheLayout from './components/common/TheLayout'
-
-const loading = (
-  <div className="pt-3 text-center">
-    <div className="sk-spinner sk-spinner-pulse"></div>
-  </div>
-)
+import { persistor, store } from './store'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+import { AppRouter } from './routes'
 
 function App() {
   return (
-    <BrowserRouter>
-      <React.Suspense fallback={loading}>
-        <Routes>
-          <Route path="/" element={<TheLayout />} />
-        </Routes>
-      </React.Suspense>
-    </BrowserRouter>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <AppRouter />
+      </PersistGate>
+    </Provider>
   )
 }
 

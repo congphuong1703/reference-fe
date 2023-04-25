@@ -1,12 +1,11 @@
 import React from 'react'
 import { Layout } from 'antd'
-import TheHeader from './TheHeader'
-import TheSidebar from './TheSidebar'
-import TheContent from './TheContent'
-import _nav from '../../_mock/nav.d'
+import TheHeader from '../../common/TheHeader'
+import TheSidebar from '../../common/TheSidebar'
+import _nav from '../../../_mock/nav.d'
+import TheContent from '../../common/TheContent'
 
-const TheLayout = () => {
-
+const PrivateLayout = () => {
   return (
     <Layout>
       <TheHeader />
@@ -19,4 +18,4 @@ const TheLayout = () => {
     </Layout>
   )
 }
-export default TheLayout
+export default PrivateLayout

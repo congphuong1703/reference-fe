@@ -1,15 +1,22 @@
-export const getMapping = () => {
-  return ''
+const getMapping = () => {
+	return ''
 }
 
-export const postMapping = () => {
-  return ''
+const postMapping = () => {
+	return ''
 }
 
-export const putMapping = () => {
-  return ''
+const putMapping = () => {
+	return ''
 }
 
-export const deleteMapping = () => {
-  return ''
+const deleteMapping = () => {
+	return ''
+}
+
+export const baseService = {
+	getMapping,
+	putMapping,
+	deleteMapping,
+	postMapping
 }

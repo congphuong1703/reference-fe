@@ -3,7 +3,7 @@ import React from 'react'
 const JobSeeker = () => {
   return (
     <React.Fragment>
-      <div>hello</div>
+      hello
     </React.Fragment>
   )
 }

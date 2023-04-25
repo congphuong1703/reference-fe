@@ -1,24 +1,29 @@
 import React from 'react'
 import { RouteProps } from '../types/layout'
+import { RouterPath } from "../types/route";
 
 const JobSeeker = React.lazy(() => import('../pages/job-seeker/job-seeker'))
+const User = React.lazy(() => import('../pages/user/index'))
 
 export const routes: RouteProps[] = [
-  {
-    path: '/jobseekers',
-    name: 'JobSeeker',
-    component: JobSeeker,
-    exact: true,
-    permission: ['Trưởng bộ phận']
-  }
-]
-
-export const privateRoutes: RouteProps[] = [
-  {
-    path: '/jobseekers',
-    name: 'JobSeeker',
-    component: JobSeeker,
-    exact: true,
-    permission: ['Trưởng bộ phận']
-  }
+	{
+		path: RouterPath.JOB_SEEKER,
+		name: 'JobSeeker',
+		component: <JobSeeker />,
+		exact: true,
+		// uncheckPermission: true,
+		pKey: "JobSeekerController",
+		accessKey: "create",
+		uncheckPermission: true,
+	},
+	{
+		path: RouterPath.USER,
+		name: 'JobSeeker',
+		component: <User />,
+		exact: true,
+		// uncheckPermission: true,
+		pKey: "JobSeekerController",
+		accessKey: "create",
+		uncheckPermission: true,
+	}
 ]
