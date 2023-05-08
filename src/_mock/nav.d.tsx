@@ -7,10 +7,16 @@ import {
 	SettingOutlined,
 	UserOutlined, ProfileOutlined, ScheduleOutlined
 } from '@ant-design/icons'
-import { NavProps } from '../types/layout'
+import { NavProps } from '../types/Layout'
 import { RouterPath } from "../types/route";
 
 const nav: NavProps[] = [
+	{
+		tag: '9',
+		name: 'Menu',
+		to: RouterPath.MENU,
+		icon: <SnippetsOutlined />
+	},
 	{
 		tag: '1',
 		name: 'Người Tìm việc',
@@ -37,9 +43,41 @@ const nav: NavProps[] = [
 	},
 	{
 		tag: '7',
-		name: 'Người dùng',
-		to: RouterPath.JOB_SEEKER,
-		icon: <UserOutlined />
+		name: 'Quản lý người dùng',
+		to: RouterPath.NOTHING,
+		icon: <UserOutlined />,
+		children: [
+			{
+				tag: '7.1',
+				name: 'Người dùng',
+				to: RouterPath.USER,
+				icon: <ProfileOutlined />,
+			},
+			{
+				tag: '7.2',
+				name: 'Role',
+				to: RouterPath.ROLE,
+				icon: <ProfileOutlined />,
+			},
+			{
+				tag: '7.3',
+				name: 'Phân quyền người dùng',
+				to: RouterPath.PERMISSION_FOR_USER,
+				icon: <ProfileOutlined />,
+			},
+			{
+				tag: '7.4',
+				name: 'Phân quyền vị trí',
+				to: RouterPath.PERMISSION_FOR_ROLE,
+				icon: <ProfileOutlined />,
+			},
+			{
+				tag: '7.5',
+				name: 'Quản lý quyền',
+				to: RouterPath.PERMISSION,
+				icon: <ProfileOutlined />,
+			},
+		]
 	},
 	{
 		tag: '8',
@@ -60,7 +98,6 @@ const nav: NavProps[] = [
 				icon: <ScheduleOutlined />,
 			},
 		],
-	},
-
+	}
 ]
 export default nav

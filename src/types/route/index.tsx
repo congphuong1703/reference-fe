@@ -10,5 +10,11 @@ export enum RouterPath {
   LOGIN = '/login',
   JOB_SEEKER= '/job-seeker',
   USER= '/user',
+  ROLE= '/role',
+  MENU= '/menu',
+  NOTHING= '#',
+  PERMISSION= '/permission',
+  PERMISSION_FOR_ROLE= '/grant-permission-role',
+  PERMISSION_FOR_USER= '/grant-permission-user',
   ANY = '*'
 }

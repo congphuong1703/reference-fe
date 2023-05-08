@@ -2,7 +2,7 @@
 import React from 'react';
 import { Layout, Row, Col, Menu, MenuProps, Tooltip } from 'antd';
 import { Link } from 'react-router-dom';
-import { NavProps } from "../../types/layout";
+import { NavProps } from "../../types/Layout";
 import getItem from "../menu/MenuItem";
 import { useTranslation } from "react-i18next";
 

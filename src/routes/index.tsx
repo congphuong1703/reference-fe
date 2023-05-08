@@ -6,7 +6,7 @@ import { ConfigProvider, Spin } from 'antd'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store'
 import { routes } from "../_mock/routes.d";
-import { RouteProps } from "../types/layout";
+import { RouteProps } from "../types/Layout";
 
 const PublicLayout = React.lazy(
 	() => import('../components/layout/public-layout')
@@ -27,28 +27,6 @@ export const AppRouter = () => {
 		<BrowserRouter>
 			<React.Suspense fallback={<Spin />}>
 				<ConfigProvider
-					theme={{
-						components: {
-							Tag: {
-								colorPrimary: '#15BA92'
-							},
-							Card: {
-								colorBorderSecondary: '#33CC7F21',
-								lineWidth: 4
-							},
-							Input: {
-								colorBgContainerDisabled: 'rgba(0, 0, 0, 0.04)'
-							},
-							Button: {
-								colorLink: '#1F7A4C'
-							}
-						},
-						token: {
-							colorPrimary: '#26A68D',
-							colorBorder: '#26A68D',
-							colorBgLayout: '#FDFDFD'
-						}
-					}}
 				>
 					<Routes>
 						<Route

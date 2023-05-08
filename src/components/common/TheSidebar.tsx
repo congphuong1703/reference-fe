@@ -1,4 +1,4 @@
-import { NavProps, SideBarProps } from '../../types/layout'
+import { NavProps, SideBarProps } from '../../types/Layout'
 import React, { useEffect, useState } from 'react'
 import { Layout, Menu, MenuProps, Tooltip } from 'antd'
 import { Link, useLocation } from 'react-router-dom'
@@ -27,7 +27,7 @@ const TheSidebar = (props: SideBarProps) => {
 					ele.icon,
 					ele.children?.map((navChild) =>
 						getItem(
-							<Tooltip title={t(ele.name)}>
+							<Tooltip title={t(navChild.name)} placement="rightBottom">
 								<Link to={navChild.to}>{t(navChild.name)}</Link>
 							</Tooltip>,
 							navChild.tag,
@@ -70,6 +70,7 @@ const TheSidebar = (props: SideBarProps) => {
 			<Menu
 				theme="dark"
 				mode="inline"
+				defaultOpenKeys={[selectedKey.split('.')[0]]}
 				defaultSelectedKeys={['0']}
 				selectedKeys={[selectedKey]}
 				items={items}

@@ -1,3 +1,7 @@
 {
-
+  "action": {
+    "addNew": "Thêm mới",
+    "detail": "Chi tiết",
+    "search": "Tìm kiếm"
+  }
 }

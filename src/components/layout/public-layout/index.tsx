@@ -4,6 +4,8 @@ import TheHeader from "../../common/TheHeader";
 import TheSidebar from "../../common/TheSidebar";
 import _nav from '../../../_mock/nav.d'
 import TheContent from "../../common/TheContent";
+import TheLayout from "../../common/TheLayout";
+import TheFooter from "../../common/TheFooter";
 
 const PublicLayout = () => {
 	// useEffect(() => {

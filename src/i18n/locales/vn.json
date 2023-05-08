@@ -1,3 +1,135 @@
 {
-
+  "action": {
+    "addNew": "Thêm mới",
+    "detail": "Chi tiết",
+    "search": "Tìm kiếm",
+    "save": "Lưu",
+    "delete": "Xóa",
+    "edit": "Cập nhật",
+    "menu": "Danh sách",
+    "close": "Đóng",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận"
+  },
+  "modal": {
+    "addMenu": {
+      "title": "Thêm/sửa thông tin menu"
+    },
+    "addUser": {
+      "basicInfo": "Thông tin cơ bản",
+      "workInfo": "Thông tin công việc",
+      "title": "Thêm/sửa thông tin người dùng"
+    },
+    "addRole": {
+      "title": "Thêm/sửa thông tin role"
+    },
+    "role": {
+      "confirmDelete": "Bạn có chắc chắn muốn xóa role này không"
+    },
+    "menu": {
+      "title": "Gán menu cho role",
+      "confirmDelete": "Bạn có chắc chắn muốn xóa menu này không"
+    },
+    "user": {
+      "confirmDelete": "Bạn có chắc chắn muốn xóa người dùng này không"
+    },
+    "permissionGroup": {
+      "basicInfo": "Thông tin cơ bản",
+      "id": "ID",
+      "name": "Tên nhóm quyền",
+      "order": "Vị trí",
+      "selected": "Danh sách quyền đã chọn"
+    },
+    "confirm": "Xác nhận"
+  },
+  "card": {
+    "footer": "Tính năng được phát triển bởi NPC"
+  },
+  "form": {
+    "permission": {
+      "code": "Mã quyền",
+      "name": "Tên quyền",
+      "group": {
+        "code": "Mã nhóm quyền",
+        "name": "Tên nhóm quyền"
+      }
+    },
+    "user": {
+      "username": "Người dùng",
+      "password": "Mật khẩu",
+      "status": "Trạng thái",
+      "id": "ID",
+      "email": "Email",
+      "fullName": "Họ và tên",
+      "dob": "Ngày sinh",
+      "address": "Địa chỉ",
+      "phoneNumber": "Số điện thoại",
+      "gender": "Giới tính",
+      "role": "Role",
+      "position": "Vị trí",
+      "employee": "Nhân viên",
+      "department": "Phòng ban"
+    },
+    "role": {
+      "name": "Tên role",
+      "description": "Mô tả"
+    },
+    "menu": {
+      "name": "Tên menu",
+      "url": "Url",
+      "order": "Thứ tự",
+      "icon": "Icon",
+      "parent": "Menu cha"
+    }
+  },
+  "table": {
+    "permission": {
+      "group": {
+        "id": "ID",
+        "code": "Mã nhóm quyền",
+        "name": "Tên nhóm quyền"
+      },
+      "name": "Tên quyền",
+      "code": "Mã quyền",
+      "description": "Mô tả"
+    },
+    "user": {
+      "username": "Người dùng",
+      "fullName": "Họ và tên",
+      "roleName": "Tên role",
+      "status": "Trạng thái",
+      "email": "Email"
+    },
+    "role": {
+      "name": "Tên role",
+      "description": "Mô tả",
+      "id": "ID"
+    },
+    "menu": {
+      "id": "ID menu",
+      "name": "Tên menu",
+      "icon": "Icon",
+      "url": "Url",
+      "parentId": "ID menu cha",
+      "order": "Thứ tự"
+    },
+    "index": "STT",
+    "action": "Hành động"
+  },
+  "path": {
+    "user": "Quản lý người dùng",
+    "job-seeker": "Quản lý người tìm việc",
+    "reference": "Quản lý người tiến cử",
+    "request": "Quản lý yêu cầu",
+    "survey": "Quản lý mẫu khảo sát",
+    "permission": "Quản lý quyền",
+    "role": "Quản lý role",
+    "grant-permission-user": "Phân quyền người dùng",
+    "grant-permission-role": "Phân quyền role",
+    "menu": "Quản lý menu"
+  },
+  "status": {
+    "active": "Hoạt động",
+    "inactive": "Dừng hoạt động"
+  }
 }

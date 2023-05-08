@@ -1,6 +1,6 @@
 import React from 'react'
 
-const JobSeeker = () => {
+const Index = () => {
   return (
     <React.Fragment>
       hello
@@ -8,4 +8,4 @@ const JobSeeker = () => {
   )
 }
 
-export default JobSeeker
+export default Index
