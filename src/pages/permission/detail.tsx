@@ -16,10 +16,8 @@ const PermissionDetail = (props: PermissionDetailProps) => {
 			<List
 				header={t('modal.permissionGroup.selected')}
 				dataSource={info.permissions} size="small"
-				renderItem={(item) =>
-					<List.Item>
-						<Typography.Text mark>[ITEM]</Typography.Text> {item}
-					</List.Item>
+				renderItem={(item: any) =>
+					<List.Item><Typography.Text>{item}</Typography.Text></List.Item>
 				}
 			/>
 		</Modal>
